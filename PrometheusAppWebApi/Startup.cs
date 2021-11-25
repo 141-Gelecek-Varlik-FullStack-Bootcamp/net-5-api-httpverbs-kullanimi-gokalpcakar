@@ -29,14 +29,14 @@ namespace PrometheusAppWebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // localhosttaki veritabaný baðlantýsý ekleniyor.
-            // appsettings.json'daki baðlantý adresi == DBConnection
+            // localhosttaki veritabani baglantisi ekleniyor.
+            // appsettings.json'daki baglanti adresi == DBConnection
             services.AddDbContext<UserDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
 
             services.AddControllers();
 
-            // interface ile sýnýf iliþkilendiriliyor.
+            // interface ile sinif iliÃ¾kilendiriliyor.
             services.AddScoped<IUserRepository, EfUserRepository>();
         }
 
